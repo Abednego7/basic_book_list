@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  All Books
+{% endblock %}
+
+{% block content %}
+  <ul>
+    {% for book in books %}
+      <li>
+        <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> (Rating: {{ book.rating }})
+      </li>
+    {% endfor %}
+  </ul>
+
+  <hr />
+
+  <p>Total Number Of Books: {{ total_number_of_books }}</p>
+  <!-- Al usar unicamente el 'avg rating' se imprime un diccionario que contiene una clave que hay que ejecutar con un punto -->
+  <p>Average Rating: {{ average_rating.rating__avg }}</p>
+{% endblock %}
